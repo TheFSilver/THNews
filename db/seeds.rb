@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+# Creation du Message Board
+messageboard = MessageBoard.create(name: "The Hacker News")
+
+Creation de 27 users et de quelques liens pour chaque user
+27.times do
+  user = User.create(name: Faker::GreekPhilosophers.name)
+  rand(1..3).times do
+    link = Link.create(address: Faker::Internet.url, user_id: user.id, messageboard_id: messageboard.id)
+    
+    rand(0..2).times do
+      comment = Comment.create(content: Faker::Lorem.sentences(1), link_id: link.id)
+    end
+  end
+end
+
+
+
+
+
