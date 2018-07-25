@@ -9,21 +9,19 @@
 require 'faker'
 
 # Creation du Message Board
-messageboard = MessageBoard.create(name: "The Hacker News")
+mboard = Mboard.create(name: "The Hacker News")
 
 Creation de 27 users et de quelques liens pour chaque user
 27.times do
   user = User.create(name: Faker::GreekPhilosophers.name)
   rand(1..3).times do
-    link = Link.create(address: Faker::Internet.url, user_id: user.id, messageboard_id: messageboard.id)
+    link = Link.create(address: Faker::Internet.url, user_id: user.id, mboard_id: mboard.id)
     
     rand(0..2).times do
-      comment = Comment.create(content: Faker::Lorem.sentences(1), link_id: link.id)
+      comment = link.comments.create(body: Faker::Lorem.sentences(1), link_id: link.id, user_id: rand(User.first.id..User.last.id))
+      rand(0..1).times do
+        comment2 = comment.comments.create(body: Faker::Lorem.sentences(1), link_id: link.id, user_id: rand(User.first.id..User.last.id))
+      end
     end
   end
 end
-
-
-
-
-
