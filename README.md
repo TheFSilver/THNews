@@ -23,6 +23,7 @@ pour pouvoir initialiser et remplir votre database !
 Cher correcteur/correctrice, si vous avez bien executez toutes ces commandes, la base de données complète se trouve au chemin d'accès suivant :
 
 ```THNews/db/development.sqlite3 ```
+
 Ouvrez-la avec <a href="http://sqlitebrowser.org/">DB Browser</a> ou <a href="http://sqlitestudio.pl/?act=download">SQLStudio</a>
 
 ### Concepteurs ###
