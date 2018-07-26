@@ -11,7 +11,7 @@ require 'faker'
 # Creation du Message Board
 mboard = Mboard.create(name: "The Hacker News")
 
-Creation de 27 users et de quelques liens pour chaque user
+# Creation de 27 users et de quelques liens pour chaque user
 27.times do
   user = User.create(name: Faker::GreekPhilosophers.name)
   rand(1..3).times do
